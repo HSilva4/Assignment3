@@ -1,0 +1,40 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Feb 9, 2016, 4:08:29 PM
+    Author     : Hannah
+*/
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.game {
+  padding: 0;
+  margin: 0;
+}
+
+.game #gameWorld {
+  display: inline-block;
+}
+
+.game .optionPanel {
+  height: 600px;
+  width: 400px;
+  display: inline-block;
+  background-color: #c4e3f3;
+  vertical-align: top;
+}
+
+.game #form1 input {
+  margin-bottom: 10px;
+}
+
+.game .info {
+  font-size: 12px;
+}
+

@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Assignment3</title>
+    <link rel="stylesheet" type="text/css" href="Style.css">
+    <script type="text/javascript" src="http://76.28.150.193:8888/socket.io/socket.io.js"></script>
+  </head>
+  <body>
+    <div class="game">
+      <canvas id="gameWorld" width="800" height="600" style="border: 1px solid white; background: black"></canvas>
+      <div class="optionPanel">
+        <h1>Select options here:</h1>
+        <script type="text/javascript">
+          function showVal(newVal, num) {
+            var id = "currentValue" + num;
+            document.getElementById(id).innerHTML = newVal;
+          }
+         
+        </script>
+        
+        <form id="form1">
+          Max Speed: 
+          <input type="range" id="maxSpeed" name="maxSpeed" min="0" max="1000" step="1" value="200" oninput="showVal(this.value, 0)" onchange="showVal(this.value, 0)">
+          <span id="currentValue0">200</span>
+
+          <br>Circle Radius:
+          <input type="range" id="circleRadius" name="circleRadius" min="0" max="50" step="1" value="20" oninput="showVal(this.value, 1)" onchange="showVal(this.value, 1)">
+          <span id="currentValue1">20</span>
+          
+          <br>Friction:
+          <input type="range" id="friction" name="friction" min="0" max="1" step="0.05" value="1" oninput="showVal(this.value, 2)" onchange="showVal(this.value, 2)">
+          <span id="currentValue2">1</span>
+          
+          <br>Number of Circles:
+          <input type="range" id="numCircles" name="numCircles" min="0" max="250" step="1" value="15" oninput="showVal(this.value, 3)" onchange="showVal(this.value, 3)">
+          <span id="currentValue3">15</span>
+          
+          <br>Rate of Growth*:
+          <input type="range" id="rateOfGrowth" name="rateOfGrowth" min="1" max="1.5" step="0.01" value="1" oninput="showVal(this.value, 4)" onchange="showVal(this.value, 4)">
+          <span id="currentValue4">1</span>
+          
+          <br>Swap Colors On Contact**:
+          <input type="checkbox" id="swapColors" name="swapColors" checked>  
+         
+          <br>Color Options:<br>
+          <input type="radio" name="colors" id="randomRGB" value="randomRBG" checked>Random RGB value<br>
+          <input type="radio" name="colors" id="RorGorB" value="RorGorB">Each circle is red, green, or blue
+        </form>
+        
+        <div id="colorStats" hidden>
+          Number of Colors Statistics:<br>
+          Red: <span id="numRed"></span><br>
+          Green: <span id="numGreen"></span><br>
+          Blue: <span id="numBlue"></span><br>
+          White: <span id="numWhite"></span><br>
+          Black: <span id="numBlack"></span><br>
+          Other: <span id="numOther"></span><br>
+        </div>
+        
+        <button id="startButton" type="button" form="form1" value="Button">Start</button>
+        <button id="resetButton" type="reset" form="form1" value="Reset">Reset</button> 
+        <div class="info">
+          <br><br>*On contact, one circle will grow by the rate of growth and one will shrink by the same rate.
+          <br>**On contact, either the red, green or blue color value for each circle will be swapped with one another.  
+        </div>
+        
+        <div id="saveState">
+          <input type="text" name="saveName" id="saveName">
+          <button id="save" type="button" form="form1" value="Save">Save</button>
+          <button id="load" type="button" form="form1" value="Load">Load</button>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="./assetmanager.js"></script>
+    <script type="text/javascript" src="./gameengine.js"></script>
+    <script type="text/javascript" src="./main.js"></script>
+  </body>
+</html>
